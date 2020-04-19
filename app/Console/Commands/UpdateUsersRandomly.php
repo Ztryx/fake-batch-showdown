@@ -2,7 +2,9 @@
 
 namespace App\Console\Commands;
 
+use App\Repositories\User\UserRepository;
 use App\Repositories\User\UserRepositoryInterface;
+use App\Services\FakeBatchAPI;
 use Faker\Factory as Faker;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Log;
@@ -55,8 +57,10 @@ class UpdateUsersRandomly extends Command
      * @return mixed
      */
     public function handle() {
+        $fakeBatchAPIService = new FakeBatchAPI(new UserRepository());
         foreach ($this->userRepository->getAll() as $user) {
             $this->userRepository->update($user->id, $this->faker->firstName, $this->faker->lastName, $this->faker->timezone);
+            $fakeBatchAPIService->fakeUpdateUser();
         }
         Log::info("Success");
     }
