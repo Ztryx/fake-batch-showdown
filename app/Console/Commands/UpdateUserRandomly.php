@@ -8,6 +8,7 @@ use App\Services\FakeBatchAPI;
 use Faker\Factory as Faker;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Log;
+use TypeError;
 
 class UpdateUserRandomly extends Command
 {
@@ -59,12 +60,16 @@ class UpdateUserRandomly extends Command
     public function handle() {
         if(!empty($this->option('email'))) {
             $fakeBatchAPIService = new FakeBatchAPI(new UserRepository());
-            $user = $this->userRepository->getByEmail($this->option('email'));
-            if(!empty($user)) {
-                $this->userRepository->update($user->id, $this->faker->firstName, $this->faker->lastName, $this->faker->timezone);
-                $fakeBatchAPIService->fakeUpdateUser();
-            } else
-                Log::error("Provided 'email' does not exist");
+            try {
+                $user = $this->userRepository->getByEmail($this->option('email'));
+                if(!empty($user)) {
+                    $this->userRepository->update($user->id, $this->faker->firstName, $this->faker->lastName, $this->faker->timezone);
+                    $fakeBatchAPIService->fakeUpdateUser();
+                } else
+                    Log::error("Provided 'email' does not exist");
+            } catch(TypeError $e) {
+                Log::error("Provided Email is not valid");
+            }
         } else
             Log::error("No argument 'email' provided");
     }

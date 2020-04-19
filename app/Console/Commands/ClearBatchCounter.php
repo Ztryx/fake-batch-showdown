@@ -28,7 +28,6 @@ class ClearBatchCounter extends Command
     /**
      * Create a new command instance.
      *
-     * @param UserRepositoryInterface $userRepository
      * @return void
      */
     public function __construct() {
