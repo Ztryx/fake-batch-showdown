@@ -2,10 +2,15 @@
 
 namespace App\Repositories\User;
 
+use App\User;
+use Illuminate\Database\Eloquent\Collection;
+
 interface UserRepositoryInterface {
 
-    public function getAll();
+    public function getAll(): Collection;
 
-    public function update($id, $firstname, $lastname, $timezone);
+    public function get(int $id): User;
+
+    public function update(int $id, string $firstname, string $lastname, string $timezone): void;
 
 }
