@@ -13,6 +13,8 @@ interface UserRepositoryInterface {
 
     public function get(int $id): User;
 
+    public function getByEmail($email): User;
+
     public function update(int $id, string $firstname, string $lastname, string $timezone): void;
 
 }

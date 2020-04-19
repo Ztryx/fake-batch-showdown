@@ -39,6 +39,19 @@ class UserRepositoryTest extends TestCase
     }
 
     /**
+     * Test Get Repository
+     *
+     * @return void
+     */
+    public function testGetRepository()
+    {
+        $userRepository = new UserRepository();
+        foreach($userRepository->getAll() as $user) {
+            $this->assertEquals($user->id, $userRepository->get($user->id)->id);
+        }
+    }
+
+    /**
      * Test Update User
      *
      * @return void
@@ -79,5 +92,18 @@ class UserRepositoryTest extends TestCase
         $date = Carbon::now()->subSeconds(6);
         $updateable_users_list = $userRepository->getAllUpdateable($date);
         $this->assertEquals(1, $updateable_users_list->count());
+    }
+
+    /**
+     * Test Get By Email User
+     *
+     * @return void
+     */
+    public function testGetByEmailRepository()
+    {
+        $userRepository = new UserRepository();
+        foreach($userRepository->getAll() as $user) {
+            $this->assertEquals($user->id, $userRepository->getByEmail($user->email)->id);
+        }
     }
 }
