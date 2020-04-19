@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\DB;
 class BatchCounterSeeder extends Seeder
 {
     /**
-     * Run the database seeds.
+     * Run Batch Counter Seeder.
      *
      * @return void
      */

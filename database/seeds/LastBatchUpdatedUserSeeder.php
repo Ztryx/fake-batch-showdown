@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 class LastBatchUpdatedUserSeeder extends Seeder
 {
     /**
-     * Run the database seeds.
+     * Run Last Batch Updated User Seeder.
      *
      * @return void
      */
