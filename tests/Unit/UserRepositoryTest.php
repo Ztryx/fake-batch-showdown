@@ -75,7 +75,7 @@ class UserRepositoryTest extends TestCase
     }
 
     /**
-     * Test Get Updateable Users
+     * Test Get Updatable Users
      *
      * @return void
      */
