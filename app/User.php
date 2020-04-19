@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'timezone'
+        'name', 'firstname', 'lastname', 'email', 'password', 'timezone'
     ];
 
     /**
@@ -36,4 +36,16 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function setFirstname($firstname){
+        $this->firstname = $firstname;
+    }
+
+    public function setLastname($lastname){
+        $this->lastname = $lastname;
+    }
+
+    public function setTimezone($timezone){
+        $this->timezone = $timezone;
+    }
 }
