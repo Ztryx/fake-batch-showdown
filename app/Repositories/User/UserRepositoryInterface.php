@@ -9,7 +9,7 @@ interface UserRepositoryInterface {
 
     public function getAll(): Collection;
 
-    public function getAllUpdateable($date): \Illuminate\Support\Collection;
+    public function getAllUpdatable($date): \Illuminate\Support\Collection;
 
     public function get(int $id): User;
 

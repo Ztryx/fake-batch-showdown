@@ -14,7 +14,7 @@ class UserRepository implements UserRepositoryInterface
         return User::all();
     }
 
-    public function getAllUpdateable($date): \Illuminate\Support\Collection {
+    public function getAllUpdatable($date): \Illuminate\Support\Collection {
         return Db::table('users')->where('updated_at', '>', $date)->get();
     }
 

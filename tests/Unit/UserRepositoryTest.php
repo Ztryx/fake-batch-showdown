@@ -90,7 +90,7 @@ class UserRepositoryTest extends TestCase
         sleep(5);
         //Get All updateable Users with previous date, in order to fake a previous completed batch
         $date = Carbon::now()->subSeconds(6);
-        $updateable_users_list = $userRepository->getAllUpdateable($date);
+        $updateable_users_list = $userRepository->getAllUpdatable($date);
         $this->assertEquals(1, $updateable_users_list->count());
     }
 
