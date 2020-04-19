@@ -5,6 +5,7 @@ namespace App\Console\Commands;
 use App\Repositories\User\UserRepositoryInterface;
 use Faker\Factory as Faker;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Log;
 
 class UpdateUsersRandomly extends Command
 {
@@ -57,5 +58,6 @@ class UpdateUsersRandomly extends Command
         foreach ($this->userRepository->getAll() as $user) {
             $this->userRepository->update($user->id, $this->faker->firstName, $this->faker->lastName, $this->faker->timezone);
         }
+        Log::info("Success");
     }
 }
