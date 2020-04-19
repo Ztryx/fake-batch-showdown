@@ -3,6 +3,7 @@
 namespace App\Repositories\User;
 use App\User;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Support\Facades\DB;
 
 class UserRepository implements UserRepositoryInterface
 {
@@ -11,6 +12,10 @@ class UserRepository implements UserRepositoryInterface
 
     public function getAll(): Collection{
         return User::all();
+    }
+
+    public function getAllUpdateable($date): \Illuminate\Support\Collection {
+        return Db::table('users')->where('updated_at', '>', $date)->get();
     }
 
     public function get(int $id): User{
