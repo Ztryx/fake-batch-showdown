@@ -14,6 +14,8 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         Commands\UpdateUsersRandomly::class,
+        Commands\UpdateUserRandomly::class,
+        Commands\ClearBatchCounter::class,
     ];
 
     /**
@@ -24,7 +26,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')->hourly();
+        $schedule->command('command:clear-batch-counter')->hourly();
     }
 
     /**
