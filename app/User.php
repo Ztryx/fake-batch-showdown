@@ -37,11 +37,11 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function setFirstname($firstname){
+    public function setFirstName($firstname){
         $this->firstname = $firstname;
     }
 
-    public function setLastname($lastname){
+    public function setLastName($lastname){
         $this->lastname = $lastname;
     }
 

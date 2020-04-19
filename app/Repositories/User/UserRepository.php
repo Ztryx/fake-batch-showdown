@@ -14,8 +14,8 @@ class UserRepository implements UserRepositoryInterface
 
     public function update($id, $firstname, $lastname, $timezone) {
         $user = User::findOrFail($id);
-        $user->setFirstname($firstname);
-        $user->setLastname($lastname);
+        $user->setFirstName($firstname);
+        $user->setLastName($lastname);
         $user->setTimezone($timezone);
         $user->update();
     }
