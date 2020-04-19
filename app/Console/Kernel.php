@@ -14,6 +14,8 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         Commands\UpdateUsersRandomly::class,
+        Commands\UpdateUserRandomly::class,
+        Commands\ClearBatchCounter::class,
     ];
 
     /**
